@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "beauty-test"
+version = "0.1.0"
+description = ""
+authors = ["Mikhail Musolin <eddienero@yandex.ru>"]
+readme = "README.md"
+packages = [{include = "beauty_test"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.17.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
