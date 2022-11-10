@@ -44,20 +44,18 @@ class UserRequestChecker:
     @staticmethod
     def _is_braces_equal(text: str):
         equality = text.count("{") == text.count("}")
-        if equality:
-            return equality
-        raise CurlyBracesNotEqualError(
-            "Opening and closing braces are not equal."
-        )
+        if not equality:
+            raise CurlyBracesNotEqualError(
+                "Opening and closing braces are not equal."
+            )
 
     def _is_keys_allowed(self, text: str):
         matches = re.findall(self.keys_regex, text)
         for key in matches:
-            if key in self.list_keys:
-                continue
-            raise ValueError(f"Key <{key}> not allowed")
+            if key not in self.list_keys:
+                raise ValueError(f"Key <{key}> not allowed")
 
-    def check(self, text: str):
+    def check(self, text: str) -> str:
         self._is_braces_equal(text)
         self._is_keys_allowed(text)
         return text
