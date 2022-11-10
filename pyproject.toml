@@ -8,6 +8,7 @@ packages = [{include = "beauty_test"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+flask = "^2.2.2"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.17.1"

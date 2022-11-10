@@ -1,13 +1,20 @@
 import pprint
 import random
+import itertools
 
-NUMBER_OF_TEST_GROUPS = 15
+NUMBER_OF_TEST_GROUPS = 30
+
+AVAILABLE_IDS = ["665587", "669532", "669532", "665587", "669532", "789777"]
+AVAILABLE_VERSIONS = [1, 2, 3]
 
 
 def get_random_group() -> list[str | int]:
-    available_ids = ["665587", "669532", "669532", "665587", "669532"]
-    available_versions = [1, 2, 3]
-    return [random.choice(available_ids), random.choice(available_versions)]
+    return [random.choice(AVAILABLE_IDS), random.choice(AVAILABLE_VERSIONS)]
+
+
+def get_all_possible_groups() -> list[list[str | int]]:
+    combinations = list(itertools.product(AVAILABLE_IDS, AVAILABLE_VERSIONS))
+    return [[i, v] for i, v in (tup for tup in combinations)]
 
 
 def group_elements(versions: list[list[str | int]]) -> list[str | int]:
