@@ -17,7 +17,7 @@ def get_all_possible_groups() -> list[list[str | int]]:
     return [[i, v] for i, v in (tup for tup in combinations)]
 
 
-def group_elements(versions: list[list[str | int]]) -> list[str | int]:
+def group_elements(versions: list[list[str | int]]) -> list[list[str | int]]:
     unique_elements = [
         [i, v] for i, v in set(tuple(elem) for elem in versions)
     ]
