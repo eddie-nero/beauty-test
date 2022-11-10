@@ -97,7 +97,7 @@ class JsonChecker:
 
     diff_list = ["services", "staff", "datetime"]
 
-    def check(self, old_data: dict, new_data: dict) -> dict:
+    def check(self, old_data: dict, new_data: dict) -> dict | None:
         if json.dumps(old_data) == json.dumps(new_data):
             print("All data equal")
             return
